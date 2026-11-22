@@ -1,0 +1,33 @@
+server:
+  port: 9050
+  servlet:
+    context-path: /account
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:9010/lovable_account_db
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+
+stripe:
+  api:
+    secret: ${STRIPE_API_SECRET}
+  webhook:
+    secret: ${STRIPE_WEBHOOK_SINGING_SECRET}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: k8s
+  datasource:
+    url: jdbc:postgresql://pgvector.lovable-core.svc.cluster.local:5432/account_db
+    username: ${DB_PASSWORD:account_user}
+    password: ${DB_PASSWORD}
+
+stripe:
+  api:
+    secret: ${STRIPE_API_KEY}
+  webhook:
+    secret: ${STRIPE_WEBHOOK_SECRET}
