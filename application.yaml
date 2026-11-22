@@ -35,6 +35,9 @@ eureka:
 jwt:
   secretKey: ${JWT_SECRET}
 
+panel-url:
+  admin: http://localhost:8080
+
 app:
   frontend:
     url: http://localhost:8080/frontend
