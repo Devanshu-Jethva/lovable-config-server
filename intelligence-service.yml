@@ -3,9 +3,6 @@ server:
   servlet.context-path: /intelligence
 
 spring:
-  jpa:
-    hibernate:
-      ddl-auto: create
   datasource:
     url: jdbc:postgresql://localhost:9010/lovable_intelligence_db
     username: postgres
